@@ -4,6 +4,11 @@
 @import "swiper/css/navigation";
 @import "swiper/css/pagination";
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 @keyframes marquee-left {
   0% {
     transform: translateX(0%);

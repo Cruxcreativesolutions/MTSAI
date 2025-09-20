@@ -3,6 +3,8 @@
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 function DesktopLogo() {
   return (
@@ -333,9 +335,9 @@ export default function Navbar() {
     : !isMobileMenuOpen;
 
   return (
-    <div className="fixed top-[1.9rem] left-0 right-0 z-[999] px-4">
+    <div className="fixed top-[1.9rem] left-0 right-0 z-[999] px-6">
       <nav
-        className={`container mx-auto bg-white shadow-lg px-6 py-4 transition-all duration-300 ease-in-out ${
+        className={`max-w-7xl mx-auto bg-white shadow-lg px-6 py-4 transition-all duration-300 ease-in-out ${
           shouldUseRoundedFull ? "rounded-full" : "rounded-2xl"
         }`}
       >
@@ -348,15 +350,22 @@ export default function Navbar() {
 
           {/* Navigation Links */}
           <div className="flex items-center gap-8">
-            {navItems.map((item) => (
-              <a
+            {navItems.map((item, idx) => (
+              <motion.div
                 key={item}
-                href="#"
-                className="text-gray-600 hover:text-blue-600 transition-colors duration-300 ease-in-out font-medium text-sm relative group"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1 * idx }}
+                viewport={{ once: false, amount: 0.3 }}
               >
-                {item}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-in-out group-hover:w-full"></span>
-              </a>
+                <Link
+                  href="#"
+                  className="text-gray-600 hover:text-blue-600 transition-colors duration-300 ease-in-out font-medium text-sm relative group"
+                >
+                  {item}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                </Link>
+              </motion.div>
             ))}
           </div>
 
