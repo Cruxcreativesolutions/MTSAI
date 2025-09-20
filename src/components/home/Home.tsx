@@ -1,3 +1,5 @@
+"use client";
+
 import type React from "react";
 import Image, { type StaticImageData } from "next/image";
 import banner from "@/assets/home/Home_banner.webp";
@@ -28,7 +30,11 @@ import india from "@/assets/home/logos/Reindia.png";
 import fastag from "@/assets/home/logos/fastag.png";
 import handol from "@/assets/home/logos/handol.png";
 import cell from "@/assets/home/logos/openxcell.png";
-import { KeyDifferentiatorsSwiper } from "./KeyDifferentiatorsSwiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import { LatestNewsSwiper } from "./LatestNewsSwiper";
 
 export function HeroSection() {
@@ -115,14 +121,14 @@ export function Cities({ data }: CitiesProps) {
 
       <div className="relative px-4 pb-16">
         {/* Mobile Layout */}
-        <div className="md:hidden space-y-6">
+        <div className="md:hidden space-y-10">
           {data.map((card, index) => (
             <div
               key={index}
               className={`relative ${index === 0 ? "-mt-16" : ""}`}
             >
               <div className="absolute -top-8 left-6 z-20">
-                <div className="w-20 h-20 rounded-full bg-transparent shadow-lg flex items-center justify-center">
+                <div className="w-20 h-20 rounded-full bg-transparent shadow-2xl flex items-center justify-center">
                   <div className="w-12 h-12 rounded-full bg-[#53aa00] flex items-center justify-center">
                     <div className="w-6 h-6 text-white [&>svg]:w-full [&>svg]:h-full">
                       {card.icon}
@@ -223,7 +229,7 @@ export function ProblemSolving({
   },
 }: ProblemSolvingProps) {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
         {/* Left Column - Content */}
         <div className="space-y-6 lg:space-y-8 w-full">
@@ -290,7 +296,7 @@ export function ProblemSolving({
           <div className="absolute top-0 w-full h-full flex justify-end items-end">
             <Button
               // onClick={buttonAction}
-              className="sm:px-6 md:px-10 lg:px-5 xl:px-11 py-1 sm:py-1.5 md:py-3 sm:text-[21px] text-[#53AA00] rounded-full mr-6 mb-4 bg-white border border-[#53AA00] hover:bg-[#53AA00] hover:text-white"
+              className="sm:px-6 md:px-10 lg:px-5 xl:px-11 py-1 sm:py-1.5 md:py-3 sm:text-[21px] text-[#53AA00] rounded-full mr-6 2xl:mr-32 mb-4 bg-white border border-[#53AA00] hover:bg-[#53AA00] hover:text-white"
             >
               {buttonText}
             </Button>
@@ -769,7 +775,7 @@ export function TrafficSolutions() {
         <Image
           src={Flyover}
           alt="flyover image"
-          className="h-[80rem] sm:h-[70rem] lg:max-h-screen  object-cover"
+          className="h-[80rem] sm:h-[75rem] lg:max-h-screen  object-cover"
         />
         <div className="absolute w-full h-full top-0 mx-auto text-center bg-[#52aa00b9] flex justify-center items-end">
           <div className="container mx-auto mb-12 px-2 sm:px-0">
@@ -1014,7 +1020,7 @@ export function KeyDifferentiators({
   ],
 }) {
   return (
-    <div className="container py-16 mx-auto space-y-10">
+    <div className="w-full max-w-7xl mx-auto px-4 py-16 space-y-10">
       <div className="flex flex-col lg:grid lg:grid-cols-3 gap-5 text-center lg:text-left mx-3 sm:mx-0">
         <div className="space-y-3 col-span-2">
           <p className="text-[22px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">
@@ -1032,7 +1038,42 @@ export function KeyDifferentiators({
         </p>
       </div>
       <div className="relative">
-        <KeyDifferentiatorsSwiper data={data} />
+        <div className="mb-8">
+          <Swiper
+            modules={[Navigation, Pagination]}
+            spaceBetween={20}
+            slidesPerView={1}
+            loop={true}
+            navigation={{
+              nextEl: ".swiper-button-next-key-diff",
+              prevEl: ".swiper-button-prev-key-diff",
+            }}
+            breakpoints={{
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+              },
+            }}
+            className="key-differentiators-swiper"
+          >
+            {data.map((item, index) => (
+              <SwiperSlide key={index}>
+                <Card className="bg-[#0052CC] px-6 py-8 h-full w-full min-h-[320px] flex flex-col justify-between">
+                  <div className="flex flex-col items-start space-y-4 flex-1">
+                    <div className="flex-shrink-0">{item.icon}</div>
+                    <p className="text-[26px] lg:text-3xl xl:text-4xl font-semibold text-white text-balance leading-tight flex-1 flex items-center">
+                      {item.title}
+                    </p>
+                  </div>
+                </Card>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
       <div className="flex items-center justify-center gap-5">
         {/* Left swiper button */}
@@ -1074,7 +1115,7 @@ export function KeyDifferentiators({
 export function Talk() {
   return (
     <div className="mx-3 sm:mx-0">
-      <div className="bg-black rounded-3xl container sm:mx-auto flex flex-col lg:flex-row justify-between overflow-hidden mb-16">
+      <div className="bg-black rounded-3xl container mx-auto flex flex-col lg:flex-row justify-between overflow-hidden mb-16 2xl:mb-28">
         <div className="flex flex-col gap-8 lg:gap-0 justify-between px-14 py-10">
           <div className="text-white leading-11">
             <p className="text-[39px]">Let’s Talk About</p>
@@ -1083,7 +1124,7 @@ export function Talk() {
             </p>
             <p className="text-[34px] font-bold">Can Do for Your City.</p>
           </div>
-          <div className="space-x-4 mb-4 flex flex-col lg:flex-row space-y-3">
+          <div className="space-x-4 mb-4 flex flex-col lg:flex-row space-y-3 mt-10">
             <Button className="bg-white shadow-2xl text-[#53AA00] rounded-full text-xl py-6 px-7 lg:w-fit w-full">
               Book a Demo
             </Button>
@@ -1095,7 +1136,7 @@ export function Talk() {
         <Image
           src={cars}
           alt="Cars"
-          className="w-full relative lg:block right-12 lg:right-0"
+          className="w-full relative lg:block right-5 xs:right-8 sm:right-12 lg:right-0"
         />
       </div>
     </div>
@@ -1109,12 +1150,12 @@ export function TechnicalUniversity() {
         <Image
           src={bme}
           alt="BME Business partner"
-          className="absolute -top-28"
+          className="absolute -top-16 sm:-top-28 2xl:-top-24 object-cover w-48 sm:w-auto"
         />
         <Image
           src={buda}
           alt="OBuda university"
-          className="absolute -bottom-16 right-0"
+          className="absolute -bottom-10 sm:-bottom-16 right-0 object-cover w-48 sm:w-auto"
         />
         <div className="sm:rounded-tl-xl overflow-hidden">
           <Image
@@ -1411,12 +1452,12 @@ export function FAQ({
         className="absolute top-0 w-full h-full object-cover -z-50"
       />
       <div className="absolute top-0 w-full h-full bg-[#000000e5] -z-20" />
-      <div className="w-full h-full z-10 py-10 pt-4">
+      <div className="container mx-auto w-full h-full z-10 py-10 pt-4">
         <div>
           <p className="text-white text-center text-[22px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-[42px] font-bold mt-20 mb-4">
             FAQs
           </p>
-          <div className="container mx-auto text-white">
+          <div className="text-white mx-4 xs:mx-3">
             <Accordion
               type="single"
               collapsible
