@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image, { type StaticImageData } from "next/image";
+import { motion } from "framer-motion";
 
 interface TechnologyCardProps {
   image: string | StaticImageData;
@@ -106,16 +107,23 @@ export function LatestNewsSwiper({ cardData }: LatestNewsSwiperProps) {
           className="latest-news-swiper"
         >
           {cardData.map((item, index) => (
-            <SwiperSlide key={index}>
-              <TechnologyCard
-                title={item.title}
-                author={item.author}
-                category={item.category}
-                date={item.date}
-                image={item.image}
-                imageAlt={item.imageAlt}
-              />
-            </SwiperSlide>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 * index }}
+              viewport={{ once: false, amount: 0.3 }}
+            >
+              <SwiperSlide key={index}>
+                <TechnologyCard
+                  title={item.title}
+                  author={item.author}
+                  category={item.category}
+                  date={item.date}
+                  image={item.image}
+                  imageAlt={item.imageAlt}
+                />
+              </SwiperSlide>
+            </motion.div>
           ))}
         </Swiper>
       </div>
