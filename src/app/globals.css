@@ -1,9 +1,96 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 20s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 20s linear infinite;
+}
+
+/* Custom Swiper Navigation Styles */
+.swiper-button-prev-key-diff,
+.swiper-button-next-key-diff,
+.swiper-button-prev-latest-news,
+.swiper-button-next-latest-news {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  background: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: opacity 0.3s ease !important;
+}
+
+.swiper-button-prev-key-diff:hover,
+.swiper-button-next-key-diff:hover,
+.swiper-button-prev-latest-news:hover,
+.swiper-button-next-latest-news:hover {
+  opacity: 0.7 !important;
+}
+
+.swiper-button-prev-key-diff::after,
+.swiper-button-next-key-diff::after,
+.swiper-button-prev-latest-news::after,
+.swiper-button-next-latest-news::after {
+  display: none !important;
+}
+
+/* Ensure equal width for KeyDifferentiators swiper slides */
+.key-differentiators-swiper .swiper-slide {
+  width: 100% !important;
+  height: auto !important;
+}
+
+@media (min-width: 768px) {
+  .key-differentiators-swiper .swiper-slide {
+    width: calc(50% - 10px) !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .key-differentiators-swiper .swiper-slide {
+    width: calc(33.333% - 14px) !important;
+  }
+}
+
+/* Ensure swiper slides have equal height */
+.key-differentiators-swiper .swiper-slide,
+.latest-news-swiper .swiper-slide {
+  height: auto !important;
+  display: flex !important;
+}
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --breakpoint-xs: 30rem;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);

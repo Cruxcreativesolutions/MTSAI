@@ -333,7 +333,7 @@ export default function Navbar() {
     : !isMobileMenuOpen;
 
   return (
-    <div className="fixed top-[30px] left-0 right-0 z-50 px-4">
+    <div className="fixed top-[30px] left-0 right-0 z-[999] px-4">
       <nav
         className={`max-w-7xl mx-auto bg-white shadow-lg px-6 py-4 transition-all duration-300 ease-in-out ${
           shouldUseRoundedFull ? "rounded-full" : "rounded-2xl"
