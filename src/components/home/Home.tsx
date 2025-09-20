@@ -1321,7 +1321,7 @@ export function LatestNews() {
   ];
   return (
     <div className="container mx-auto mb-14">
-      <div className="flex gap-4 items-center mb-14">
+      <div className="flex gap-4 items-center mb-10 md:mb-14">
         <p className="text-5xl font-bold whitespace-nowrap text-center sm:text-left w-fit mx-auto">
           Latest News
         </p>
@@ -1454,7 +1454,7 @@ export function FAQ({
       <div className="absolute top-0 w-full h-full bg-[#000000e5] -z-20" />
       <div className="container mx-auto w-full h-full z-10 py-10 pt-4">
         <div>
-          <p className="text-white text-center text-[22px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-[42px] font-bold mt-20 mb-4">
+          <p className="text-white text-center text-[22px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-[42px] font-bold mt-14 sm:mt-20 mb-4">
             FAQs
           </p>
           <div className="text-white mx-4 xs:mx-3">
