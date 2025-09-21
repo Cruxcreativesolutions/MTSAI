@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
 import banner from "@/assets/home/Home_banner.webp";
 import { Button } from "../ui/button";
 import {
@@ -43,6 +43,7 @@ import {
   ProblemSolvingProps,
   TechnologyCardProps,
 } from "@/types/Home";
+import { ReactElement } from "react";
 
 export function HeroSection() {
   return (
@@ -353,7 +354,7 @@ export function ProblemSolving({
 export function TrafficSolutions({
   features,
 }: {
-  features: Record<string, any>[];
+  features: { icon: ReactElement; title: string }[];
 }) {
   return (
     <div className="">
@@ -487,7 +488,11 @@ export function TrafficSolutions({
   );
 }
 
-export function KeyDifferentiators({ data }: { data: Record<string, any>[] }) {
+export function KeyDifferentiators({
+  data,
+}: {
+  data: { icon: ReactElement; title: string }[];
+}) {
   return (
     <div className="w-full max-w-7xl mx-auto px-6 xl:px-0 py-16 space-y-10">
       <div className="flex flex-col lg:grid lg:grid-cols-3 gap-5 text-center lg:text-left mx-3 sm:mx-0">

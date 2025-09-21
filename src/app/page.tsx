@@ -1,5 +1,4 @@
 import {
-  AccordionItemData,
   Cities,
   FAQ,
   HeroSection,
@@ -11,6 +10,7 @@ import {
   TrafficSolutions,
   WorldsBest,
 } from "@/components/home/Home";
+import { AccordionItemData } from "@/types/Home";
 
 export default function Page() {
   const accordionData: AccordionItemData[] = [
