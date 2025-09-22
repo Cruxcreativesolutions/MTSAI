@@ -30,23 +30,23 @@ function TechnologyCard({
   date,
 }: TechnologyCardProps) {
   return (
-    <div className="max-w-md mx-auto p-4 h-full">
-      <Card className="overflow-hidden border-2 border-[#53aa00]/20 rounded-2xl shadow-lg bg-[#ffffff] h-full flex flex-col">
-        <div className="relative">
+    <div className="max-w-md mx-auto p-4 py-2 h-full">
+      <Card className="overflow-hidden border-2 border-[#4B6BFB0D] rounded-2xl shadow-lg bg-[#ffffff] h-full flex flex-col">
+        <div className="w-full h-full rounded-xl overflow-hidden">
           <Image
             src={image}
             alt={imageAlt}
-            className="w-full h-[280px] object-cover"
+            className="w-full h-[280px] object-cover px-2.5"
             width={400}
             height={280}
           />
         </div>
 
         <CardContent className="p-6 space-y-4 flex-1 flex flex-col justify-between">
-          <div className="space-y-4">
+          <div className="space-y-3">
             <Badge
               variant="secondary"
-              className="bg-[#53aa00]/10 text-[#53aa00] border-[#53aa00]/20 px-3 py-1 text-sm font-medium"
+              className="bg-[#4B6BFB0D] text-[#4B6BFB] px-3 py-1 text-sm font-medium"
             >
               {category}
             </Badge>
@@ -55,7 +55,7 @@ function TechnologyCard({
             </h3>
           </div>
 
-          <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+          <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <Avatar className="w-8 h-8">
                 <AvatarImage src={author.avatar} alt={author.name} />
@@ -63,7 +63,7 @@ function TechnologyCard({
                   {author.name.charAt(0)}
                 </AvatarFallback>
               </Avatar>
-              <div>
+              <div className="flex lg:flex-row flex-col gap-4">
                 <p className="text-sm font-medium text-gray-900">
                   {author.name}
                 </p>
@@ -107,14 +107,14 @@ export function LatestNewsSwiper({ cardData }: LatestNewsSwiperProps) {
           className="latest-news-swiper"
         >
           {cardData.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 * index }}
-              viewport={{ once: false, amount: 0.3 }}
-            >
-              <SwiperSlide key={index}>
+            <SwiperSlide key={index} className="w-full py-5">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 * index }}
+                viewport={{ once: false, amount: 0.3 }}
+                className="hover:scale-[103%] transition-all"
+              >
                 <TechnologyCard
                   title={item.title}
                   author={item.author}
@@ -123,8 +123,8 @@ export function LatestNewsSwiper({ cardData }: LatestNewsSwiperProps) {
                   image={item.image}
                   imageAlt={item.imageAlt}
                 />
-              </SwiperSlide>
-            </motion.div>
+              </motion.div>
+            </SwiperSlide>
           ))}
         </Swiper>
       </div>

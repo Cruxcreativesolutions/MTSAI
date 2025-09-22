@@ -14,7 +14,7 @@ function DesktopLogo() {
       viewBox="0 0 179 73"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="h-8 w-auto"
+      className="h-10 w-auto"
     >
       <g clipPath="url(#clip0_101_9)">
         <g clipPath="url(#clip1_101_9)">
@@ -342,14 +342,14 @@ export default function Navbar() {
         }`}
       >
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center justify-between">
+        <div className="hidden lg:flex items-center justify-between gap-5">
           {/* Logo */}
           <div className="flex items-center">
             <DesktopLogo />
           </div>
 
           {/* Navigation Links */}
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-5 xl:gap-8">
             {navItems.map((item, idx) => (
               <motion.div
                 key={item}
@@ -360,7 +360,7 @@ export default function Navbar() {
               >
                 <Link
                   href="#"
-                  className="text-gray-600 hover:text-blue-600 transition-colors duration-300 ease-in-out font-medium text-sm relative group"
+                  className="text-[#7f7f7f] hover:text-blue-600 transition-colors duration-300 ease-in-out font-medium text-sm relative group text-center"
                 >
                   {item}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-in-out group-hover:w-full"></span>
