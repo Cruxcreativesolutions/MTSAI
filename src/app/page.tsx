@@ -18,22 +18,25 @@ export default function Page() {
       id: "traffic-gridlock",
       title: "Traffic Gridlock",
       content:
-        "Indian cities like Delhi, Mumbai, Bengaluru, and Kolkata collectively lose up to $22 billion annually (as of 2024-2025 estimates from TomTom/INRIX reports) due to traffic congestion—factoring in time delays, fuel waste, productivity loss, and emissions (₹1.83 lakh crore at ~₹83/$1). With an AI-based congestion pricing model (like Stockholm/Singapore, reducing jams 20-30%), they could save ₹36,600-54,900 crore/year through better flow, incentives, and revenue reinvestment.",
+        "India’s traffic congestion crisis costs over ₹3 lakh crore yearly, with 95% of drivers losing 1.5 hours daily. Monsoons, festivals, and potholes worsen delays, adding 5,000 tons of CO₂ emissions daily and hitting economic productivity.",
     },
     {
       id: "public-resistance",
       title: "Public Resistance to Tolls",
-      content: "Content for public resistance to tolls section.",
+      content:
+        "A 70% compliance gap highlights widespread public resistance to tolling, driven by weak incentives and perceived unfairness. This lack of engagement costs cities valuable revenue and hinders effective traffic management efforts.",
     },
     {
       id: "one-person-car",
       title: "One Person, One Car",
-      content: "Content for one person, one car section.",
+      content:
+        "Outdated tolling systems fail to address the dominance of single-occupant vehicles, contributing to congestion and revenue loss. This inefficient model limits the potential for sustainable urban mobility and environmental benefits.",
     },
     {
       id: "technology-gaps",
       title: "Technology Gaps",
-      content: "Content for technology gaps section.",
+      content:
+        "Legacy toll infrastructure and the absence of advanced technology leave cities ill-equipped to adapt to dynamic traffic patterns, resulting in missed opportunities for revenue generation and smarter traffic solutions.",
     },
   ];
 
