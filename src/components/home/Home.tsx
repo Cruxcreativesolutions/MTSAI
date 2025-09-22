@@ -48,7 +48,7 @@ import {
 export function HeroSection() {
   return (
     <div className=" w-full">
-      <div className="relative">
+      {/* <div className="relative">
         <Image
           src={banner}
           alt="Shanghai interchange"
@@ -96,15 +96,15 @@ export function HeroSection() {
             </motion.div>
           </div>
         </div>
-      </div>
-      {/* <video
+      </div> */}
+      <video
         src="/videos/MTS_Video.mp4"
         className="w-full h-full"
         // controls
         autoPlay={true}
         loop
         muted
-      /> */}
+      />
     </div>
   );
 }

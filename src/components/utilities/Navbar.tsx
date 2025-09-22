@@ -355,7 +355,7 @@ export default function Navbar() {
                 key={item}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 * idx }}
+                transition={{ duration: 0.5, delay: 0.1 * idx }}
                 viewport={{ once: false, amount: 0.3 }}
               >
                 <Link
