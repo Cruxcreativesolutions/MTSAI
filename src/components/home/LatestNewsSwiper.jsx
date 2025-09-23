@@ -6,20 +6,9 @@ import { Navigation, Pagination } from "swiper/modules";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
-interface TechnologyCardProps {
-  image: string | StaticImageData;
-  imageAlt: string;
-  category: string;
-  title: string;
-  author: {
-    name: string;
-    avatar: string;
-  };
-  date: string;
-}
 
 function TechnologyCard({
   image,
@@ -28,7 +17,7 @@ function TechnologyCard({
   title,
   author,
   date,
-}: TechnologyCardProps) {
+}) {
   return (
     <div className="max-w-md mx-auto p-4 py-2 h-full">
       <Card className="overflow-hidden border-2 border-[#4B6BFB0D] rounded-2xl shadow-lg bg-[#ffffff] h-full flex flex-col">
@@ -77,11 +66,7 @@ function TechnologyCard({
   );
 }
 
-interface LatestNewsSwiperProps {
-  cardData: TechnologyCardProps[];
-}
-
-export function LatestNewsSwiper({ cardData }: LatestNewsSwiperProps) {
+export function LatestNewsSwiper({ cardData }) {
   return (
     <>
       <div className="mb-8">
