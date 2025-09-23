@@ -513,13 +513,13 @@ export function KeyDifferentiators({
             className="key-differentiators-swiper"
           >
             {data.map((item, index) => (
-              <SwiperSlide key={index} className="w-full">
+              <SwiperSlide key={index} className="w-full mb-3">
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 * index }}
                   viewport={{ once: false, amount: 0.3 }}
-                  className="w-full h-[20.5rem] group [perspective:1000px]"
+                  className="w-full h-[20.5rem] group [perspective:1000px] p-4"
                 >
                   <div className="relative w-full h-full [transform-style:preserve-3d] transition-transform duration-700 group-hover:[transform:rotateY(180deg)]">
                     {/* Front of card */}
