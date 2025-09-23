@@ -1,19 +1,8 @@
-import {
-  Cities,
-  FAQ,
-  HeroSection,
-  KeyDifferentiators,
-  LatestNews,
-  ProblemSolving,
-  Talk,
-  TechnicalUniversity,
-  TrafficSolutions,
-  WorldsBest,
-} from "@/components/home/Home";
-import { AccordionItemData } from "@/types/Home";
+import { Cities, FAQ, HeroSection, KeyDifferentiators, LatestNews, ProblemSolving, Talk, TechnicalUniversity, TrafficSolutions, WorldsBest } from "../components/home/Home";
+
 
 export default function Page() {
-  const accordionData: AccordionItemData[] = [
+  const accordionData = [
     {
       id: "traffic-gridlock",
       title: "Traffic Gridlock",
@@ -40,7 +29,7 @@ export default function Page() {
     },
   ];
 
-  const faq: AccordionItemData[] = [
+  const faq = [
     {
       id: "1",
       title:

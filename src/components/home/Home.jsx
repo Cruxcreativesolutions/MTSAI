@@ -1,6 +1,6 @@
 "use client";
 
-import type React from "react";
+import  React from "react";
 import Image from "next/image";
 // import banner from "@/assets/home/Home_banner.webp";
 import { Button } from "../ui/button";
@@ -24,7 +24,7 @@ import faq from "@/assets/home/FAQ.png";
 import bme from "@/assets/home/BME.png";
 import buda from "@/assets/home/OBuda.png";
 import crux from "@/assets/home/logos/Crux.png";
-import ondc from "@/assets/home/logos/ONDC.png";
+import obudai from "@/assets/home/logos/Óbudai.png";
 import adaptive from "@/assets/home/logos/Adaptive.png";
 import india from "@/assets/home/logos/Reindia.png";
 import fastag from "@/assets/home/logos/fastag.png";
@@ -35,15 +35,9 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import type { ReactElement } from "react";
 import { LatestNewsSwiper } from "./LatestNewsSwiper";
 import { motion } from "framer-motion";
-import {
-  AccordionItemData,
-  CitiesProps,
-  ProblemSolvingProps,
-  TechnologyCardProps,
-} from "@/types/Home";
+
 
 export function HeroSection() {
   return (
@@ -109,7 +103,7 @@ export function HeroSection() {
   );
 }
 
-export function Cities({ data }: CitiesProps) {
+export function Cities({ data }) {
   return (
     <div className="w-full relative">
       <div className="w-full h-80 md:h-80 bg-[conic-gradient(from_159.65deg_at_25.8%_85.64%,#000917_-54.6deg,#0052CC_284.85deg,#000917_305.4deg,#0052CC_644.85deg)] text-white relative overflow-hidden rounded-b-4xl">
@@ -227,7 +221,7 @@ export function ProblemSolving({
   accordionItems,
   defaultOpenItem,
   buttonText,
-}: ProblemSolvingProps) {
+}) {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
       <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
@@ -328,8 +322,6 @@ export function ProblemSolving({
 
 export function TrafficSolutions({
   features,
-}: {
-  features: { icon: ReactElement; title: string }[];
 }) {
   return (
     <div className="">
@@ -466,8 +458,6 @@ export function TrafficSolutions({
 
 export function KeyDifferentiators({
   data,
-}: {
-  data: { icon: ReactElement; title: string; subTitle?: string }[];
 }) {
   return (
     <div className="w-full max-w-7xl mx-auto px-6 xl:px-0 py-16 space-y-5">
@@ -742,8 +732,8 @@ export function WorldsBest({
       alt: "crux",
     },
     {
-      img: ondc,
-      alt: "ondc",
+      img: obudai,
+      alt: "obudai",
     },
     {
       img: adaptive,
@@ -762,8 +752,8 @@ export function WorldsBest({
       alt: "handol",
     },
     {
-      img: cell,
-      alt: "openxcell",
+      img: bme,
+      alt: "bme",
     },
   ],
 }) {
@@ -949,7 +939,7 @@ export function TechnologyCard({
   title,
   author,
   date,
-}: TechnologyCardProps) {
+}) {
   return (
     <div className="max-w-md mx-auto p-4 h-full">
       <Card className="overflow-hidden border-2 border-[#53aa00]/20 rounded-2xl shadow-lg bg-[#ffffff] h-full flex flex-col">
@@ -1003,9 +993,6 @@ export function TechnologyCard({
 export function FAQ({
   accordionItems,
   defaultOpenItem,
-}: {
-  accordionItems: AccordionItemData[];
-  defaultOpenItem?: string;
 }) {
   return (
     <div className="relative">
