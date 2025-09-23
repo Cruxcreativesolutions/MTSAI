@@ -162,7 +162,7 @@ export default function Footer() {
           "linear-gradient(135deg, rgba(0, 82, 204, 1) 15%, rgba(0, 9, 23, 1) 90%)",
       }}
     >
-      <div className="container mx-auto px-6 py-12">
+      <div className="max-w-7xl mx-auto px-8 xl:px-0 py-12">
         {/* Desktop Layout */}
         <div className="hidden lg:grid lg:grid-cols-3 lg:gap-12 lg:items-start">
           {/* Left Section - Logo and App Downloads */}

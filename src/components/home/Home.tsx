@@ -2,7 +2,7 @@
 
 import type React from "react";
 import Image from "next/image";
-import banner from "@/assets/home/Home_banner.webp";
+// import banner from "@/assets/home/Home_banner.webp";
 import { Button } from "../ui/button";
 import {
   Accordion,
@@ -1020,7 +1020,7 @@ export function FAQ({
           <p className="text-white text-center text-[22px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-[42px] font-bold mt-14 sm:mt-20 mb-4">
             FAQs
           </p>
-          <div className="text-white mx-4 xs:mx-3">
+          <div className="text-white mx-4 xs:mx-3 xl:mx-0">
             <Accordion
               type="single"
               collapsible
