@@ -35,6 +35,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import type { ReactElement } from "react";
 import { LatestNewsSwiper } from "./LatestNewsSwiper";
 import { motion } from "framer-motion";
 import {
@@ -43,12 +44,11 @@ import {
   ProblemSolvingProps,
   TechnologyCardProps,
 } from "@/types/Home";
-import { ReactElement } from "react";
 
 export function HeroSection() {
   return (
     <div className=" w-full">
-      <div className="relative">
+      {/* <div className="relative">
         <Image
           src={banner}
           alt="Shanghai interchange"
@@ -60,7 +60,7 @@ export function HeroSection() {
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
               viewport={{ once: false, amount: 0.3 }}
               className="text-[32px] md:text-5xl lg:text-[56px] font-bold"
             >
@@ -70,7 +70,7 @@ export function HeroSection() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
               viewport={{ once: false, amount: 0.3 }}
               className="md:text-xl bg-[#3725258f] px-5 py-2 rounded-2xl mx-auto"
             >
@@ -83,7 +83,7 @@ export function HeroSection() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
               viewport={{ once: false, amount: 0.3 }}
               className="flex flex-col md:flex-row justify-center items-center gap-5 lg:gap-9 mt-8 mb-12"
             >
@@ -96,15 +96,15 @@ export function HeroSection() {
             </motion.div>
           </div>
         </div>
-      </div>
-      {/* <video
+      </div> */}
+      <video
         src="/videos/MTS_Video.mp4"
         className="w-full h-full"
         // controls
         autoPlay={true}
         loop
         muted
-      /> */}
+      />
     </div>
   );
 }
@@ -127,7 +127,7 @@ export function Cities({ data }: CitiesProps) {
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
               viewport={{ once: false, amount: 0.3 }}
               className="text-2xl md:text-[32px] font-bold leading-tight"
             >
@@ -136,7 +136,7 @@ export function Cities({ data }: CitiesProps) {
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
               viewport={{ once: false, amount: 0.3 }}
               className="text-base md:text-lg text-white/90"
             >
@@ -155,7 +155,7 @@ export function Cities({ data }: CitiesProps) {
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 * index }}
+              transition={{ duration: 0.5, delay: 0.1 * index }}
               viewport={{ once: true, amount: 0.3 }}
               className={`relative ${index === 0 ? "-mt-16" : ""}`}
             >
@@ -189,9 +189,9 @@ export function Cities({ data }: CitiesProps) {
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 * index }}
+                transition={{ duration: 0.5, delay: 0.1 * index }}
                 viewport={{ once: false, amount: 0.3 }}
-                className="relative flex flex-col"
+                className="relative flex flex-col hover:scale-105 transition-all"
               >
                 <div className="absolute -top-8 left-6 z-20">
                   <div className="w-20 h-20 rounded-full bg-transparent shadow-lg flex items-center justify-center">
@@ -227,18 +227,6 @@ export function ProblemSolving({
   accordionItems,
   defaultOpenItem,
   buttonText,
-  colors = {
-    mainTitle: "#000000",
-    subtitle: "#0052cc",
-    text: "#000000",
-    border: "#d9d9d9",
-    accent: "#0052cc",
-    button: "#ffffff",
-    buttonText: "#53aa00",
-    buttonHover: "#53aa00",
-    buttonHoverText: "#ffffff",
-    overlay: "#53aa00",
-  },
 }: ProblemSolvingProps) {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
@@ -252,7 +240,6 @@ export function ProblemSolving({
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: false, amount: 0.3 }}
               className="text-[22px] sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight"
-              style={{ color: colors.mainTitle }}
             >
               {mainTitle}
             </motion.h1>
@@ -261,8 +248,7 @@ export function ProblemSolving({
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
               viewport={{ once: false, amount: 0.3 }}
-              className="text-[22px] sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight"
-              style={{ color: colors.subtitle }}
+              className="text-[22px] sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight text-[#0052cc]"
             >
               {subtitle}
             </motion.h2>
@@ -273,16 +259,12 @@ export function ProblemSolving({
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             viewport={{ once: false, amount: 0.3 }}
-            className="text-sm md:text-lg leading-relaxed text-center lg:text-left"
-            style={{ color: colors.text }}
+            className="text-sm md:text-lg leading-relaxed text-center lg:text-left text-black"
           >
             {description}
           </motion.p>
 
-          <div
-            className="border-t pt-4 lg:pt-6"
-            style={{ borderColor: colors.border }}
-          >
+          <div className="border-t pt-4 lg:pt-6 border-[#d9d9d9]">
             <Accordion
               type="single"
               collapsible
@@ -299,19 +281,12 @@ export function ProblemSolving({
                 >
                   <AccordionItem
                     value={item.id}
-                    className="border-b"
-                    style={{ borderColor: colors.border }}
+                    className="border-b border-[#d9d9d9]"
                   >
-                    <AccordionTrigger
-                      className="text-xs md:text-lg font-semibold hover:no-underline py-4 lg:py-6 text-left"
-                      style={{ color: colors.text }}
-                    >
+                    <AccordionTrigger className="text-xs md:text-lg font-semibold hover:no-underline py-4 lg:py-6 text-left text-black">
                       {item.title}
                     </AccordionTrigger>
-                    <AccordionContent
-                      className="text-[10px] sm:text-base leading-relaxed pb-6 lg:pb-8"
-                      style={{ color: colors.text }}
-                    >
+                    <AccordionContent className="text-[10px] sm:text-base leading-relaxed pb-6 lg:pb-8 text-black">
                       {item.content}
                     </AccordionContent>
                   </AccordionItem>
@@ -394,7 +369,7 @@ export function TrafficSolutions({
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
                 viewport={{ once: false, amount: 0.3 }}
                 className="text-4xl md:text-6xl font-bold text-white mb-5 text-balance"
               >
@@ -403,7 +378,7 @@ export function TrafficSolutions({
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
                 viewport={{ once: false, amount: 0.3 }}
                 className="text-lg md:text-xl text-white/90 max-w-4xl mx-auto mb-6 text-pretty leading-relaxed"
               >
@@ -419,8 +394,9 @@ export function TrafficSolutions({
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.1 * index }}
+                  transition={{ duration: 0.5, delay: 0.1 * index }}
                   viewport={{ once: false, amount: 0.3 }}
+                  className="hover:scale-105 transition-all"
                 >
                   <Card className="bg-white p-6 rounded-2xl shadow-lg border-0">
                     <div className="flex items-center gap-4">
@@ -448,7 +424,7 @@ export function TrafficSolutions({
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
               viewport={{ once: false, amount: 0.3 }}
               className="text-4xl md:text-5xl font-bold text-white mb-8 text-balance"
             >
@@ -459,7 +435,7 @@ export function TrafficSolutions({
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
               viewport={{ once: false, amount: 0.3 }}
               className="text-lg md:text-xl text-white mb-8 text-pretty leading-relaxed w-10/12 mx-auto"
             >
@@ -471,12 +447,12 @@ export function TrafficSolutions({
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
               viewport={{ once: false, amount: 0.3 }}
             >
               <Button
                 size="lg"
-                className="bg-black hover:bg-black/90 text-white px-8 py-4 text-lg rounded-full font-semibold"
+                className="bg-black hover:bg-white text-white hover:text-[#52aa00] px-8 py-4 text-lg rounded-full font-semibold hover:scale-105"
               >
                 See Full Platform
               </Button>
@@ -491,10 +467,10 @@ export function TrafficSolutions({
 export function KeyDifferentiators({
   data,
 }: {
-  data: { icon: ReactElement; title: string }[];
+  data: { icon: ReactElement; title: string; subTitle?: string }[];
 }) {
   return (
-    <div className="w-full max-w-7xl mx-auto px-6 xl:px-0 py-16 space-y-10">
+    <div className="w-full max-w-7xl mx-auto px-6 xl:px-0 py-16 space-y-5">
       <div className="flex flex-col lg:grid lg:grid-cols-3 gap-5 text-center lg:text-left mx-3 sm:mx-0">
         <motion.div
           initial={{ x: -50, opacity: 0 }}
@@ -527,7 +503,7 @@ export function KeyDifferentiators({
         <div className="mb-8">
           <Swiper
             modules={[Navigation, Pagination]}
-            spaceBetween={20}
+            spaceBetween={21}
             slidesPerView={1}
             loop={true}
             navigation={{
@@ -547,24 +523,37 @@ export function KeyDifferentiators({
             className="key-differentiators-swiper"
           >
             {data.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 * index }}
-                viewport={{ once: false, amount: 0.3 }}
-              >
-                <SwiperSlide>
-                  <Card className="bg-[#0052CC] px-6 py-8 h-full w-full min-h-[320px] flex flex-col justify-between">
-                    <div className="flex flex-col items-start space-y-4 flex-1">
-                      <div className="flex-shrink-0">{item.icon}</div>
-                      <p className="text-[26px] lg:text-3xl xl:text-4xl font-semibold text-white text-balance leading-tight flex-1 flex items-center">
-                        {item.title}
-                      </p>
-                    </div>
-                  </Card>
-                </SwiperSlide>
-              </motion.div>
+              <SwiperSlide key={index} className="w-full">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 * index }}
+                  viewport={{ once: false, amount: 0.3 }}
+                  className="w-full h-[20.5rem] group [perspective:1000px]"
+                >
+                  <div className="relative w-full h-full [transform-style:preserve-3d] transition-transform duration-700 group-hover:[transform:rotateY(180deg)]">
+                    {/* Front of card */}
+                    <Card className="absolute inset-0 w-full bg-[#0052CC] px-6 py-8 h-fit min-h-[320px] flex flex-col justify-between cursor-pointer [backface-visibility:hidden]">
+                      <div className="flex flex-col items-start space-y-4 flex-1">
+                        <div className="flex-shrink-0">{item.icon}</div>
+                        <p className="text-[26px] lg:text-3xl xl:text-4xl font-semibold text-white text-balance leading-tight flex-1 flex items-center">
+                          {item.title}
+                        </p>
+                      </div>
+                    </Card>
+
+                    {/* Back of card */}
+                    <Card className="absolute inset-0 w-full border-2 border-[#0052CC] px-6 py-8 h-fit min-h-[320px] flex flex-col justify-center cursor-pointer [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                      <div className="flex flex-col items-center text-center space-y-4">
+                        <div className="flex-shrink-0">{item.icon}</div>
+                        <p className="text-[16px] lg:text-lg xl:text-xl text-[#0052CC] text-balance leading-relaxed">
+                          {item.subTitle}
+                        </p>
+                      </div>
+                    </Card>
+                  </div>
+                </motion.div>
+              </SwiperSlide>
             ))}
           </Swiper>
         </div>
@@ -627,14 +616,14 @@ export function Talk() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
             viewport={{ once: false, amount: 0.3 }}
             className="space-x-4 mb-4 flex flex-col lg:flex-row space-y-3 mt-10"
           >
-            <Button className="bg-white shadow-2xl text-[#53AA00] rounded-full text-xl py-6 px-7 lg:w-fit w-full">
+            <Button className="bg-white hover:bg-[#53AA00] hover:text-white shadow-2xl text-[#53AA00] rounded-full text-xl py-6 px-7 lg:w-fit w-full hover:scale-105 transition-all">
               Book a Demo
             </Button>
-            <Button className="bg-[#53AA00] shadow-2xl text-white rounded-full  text-xl py-6 px-7 lg:w-fit w-full">
+            <Button className="bg-[#53AA00] hover:bg-white hover:text-[#53AA00] shadow-2xl text-white rounded-full  text-xl py-6 px-7 lg:w-fit w-full hover:scale-105 transition-all">
               Contact Us
             </Button>
           </motion.div>
@@ -662,7 +651,7 @@ export function TechnicalUniversity() {
         <motion.div
         // initial={{ opacity: 0, y: -30 }}
         // whileInView={{ opacity: 1, y: 0 }}
-        // transition={{ duration: 0.8, delay: 0.8 }}
+        // transition={{ duration: 0.5, delay: 0.8 }}
         // viewport={{ once: false, amount: 0.3 }}
         >
           <Image
@@ -674,7 +663,7 @@ export function TechnicalUniversity() {
         <motion.div
         // initial={{ opacity: 0, y: 30 }}
         // whileInView={{ opacity: 1, y: 0 }}
-        // transition={{ duration: 0.8, delay: 0.8 }}
+        // transition={{ duration: 0.5, delay: 0.8 }}
         // viewport={{ once: false, amount: 0.3 }}
         >
           <Image
@@ -737,7 +726,7 @@ export function TechnicalUniversity() {
           transition={{ duration: 0.5, delay: 0.8 }}
           viewport={{ once: false, amount: 0.3 }}
         >
-          <Button className="bg-white text-[#53AA00] border border-[#53AA00] text-xl px-9 py-6 rounded-full mt-5 w-full sm:w-fit">
+          <Button className="bg-white hover:bg-[#53AA00] text-[#53AA00] hover:text-white border border-[#53AA00] hover:scale-105 transition-all text-xl px-9 py-6 rounded-full mt-5 w-full sm:w-fit">
             More about Partnerships
           </Button>
         </motion.div>
@@ -781,11 +770,29 @@ export function WorldsBest({
   return (
     <div className="mb-14">
       <div className="max-w-7xl mx-auto px-6 xl:px-0 flex items-center justify-center gap-4 mb-12">
-        <div className="bg-[#53AA00] md:block hidden h-[2px] w-full" />
-        <p className="text-[22px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-[42px] font-bold whitespace-nowrap">
+        <motion.div
+          initial={{ x: -50, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.4 }}
+          viewport={{ once: false, amount: 0.3 }}
+          className="bg-[#53AA00] md:block hidden h-[2px] w-full"
+        />
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          viewport={{ once: false, amount: 0.3 }}
+          className="text-[22px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-[42px] font-bold whitespace-nowrap"
+        >
           Built by <span className="text-[#0052CC]">World&apos;s Best</span>
-        </p>
-        <div className="bg-[#53AA00] md:block hidden h-[2px] w-full" />
+        </motion.p>
+        <motion.div
+          initial={{ x: 50, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.9, delay: 0.4 }}
+          viewport={{ once: false, amount: 0.3 }}
+          className="bg-[#53AA00] md:block hidden h-[2px] w-full"
+        />
       </div>
       <div className="overflow-hidden space-y-8 relative mx-auto max-w-7xl px-6 xl:px-0">
         {/* Left blur overlay */}
@@ -878,7 +885,7 @@ export function LatestNews() {
   ];
   return (
     <div className="max-w-7xl px-6 xl:px-0 mx-auto mb-14">
-      <div className="flex gap-4 items-center mb-10 md:mb-14">
+      <div className="flex gap-4 items-center mb-2 md:mb-4">
         <motion.p
           initial={{ x: -50, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
