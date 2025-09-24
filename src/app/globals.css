@@ -8,6 +8,9 @@ html,
 body {
   overflow-x: hidden;
 }
+body {
+  font-family: "Switzer", sans-serif;
+}
 
 @keyframes marquee-left {
   0% {
