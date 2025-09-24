@@ -315,14 +315,41 @@ export default function Navbar() {
   const isMenuOpeningRef = useRef(false);
 
   const navItems = [
-    "About Us",
-    "Technology",
-    "Solutions",
-    "Ridesharing",
-    "Government Portal",
-    "Investor Centre",
-    "Resources",
-    "Contact Us",
+    {
+      id:1,
+      label:"About Us",
+      link:"/about-us"
+    },
+    {
+      id:2,
+      label:"Technology",
+      link:"#"
+    },
+    {
+      id:3,
+      label:"Solutions",
+      link:"#"
+    },
+    {
+      id:4,
+      label:"Ridesharing",
+      link:"#"
+    },
+    {
+      id:5,
+      label:"Investor Centre",
+      link:"#"
+    },
+    {
+      id:6,
+      label:"Resources",
+      link:"#"
+    },
+    {
+      id:7,
+      label:"Contact Us",
+      link:"#"
+    }, 
   ];
 
   const toggleMobileMenu = () => {
@@ -352,17 +379,17 @@ export default function Navbar() {
           <div className="flex items-center gap-5 xl:gap-8">
             {navItems.map((item, idx) => (
               <motion.div
-                key={item}
+                key={item.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 * idx }}
                 viewport={{ once: false, amount: 0.3 }}
               >
                 <Link
-                  href="#"
+                  href={item?.link}
                   className="text-[#7f7f7f] hover:text-blue-600 transition-colors duration-300 ease-in-out font-medium text-sm relative group text-center"
                 >
-                  {item}
+                  {item?.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-in-out group-hover:w-full"></span>
                 </Link>
               </motion.div>
