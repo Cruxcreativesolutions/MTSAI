@@ -316,40 +316,40 @@ export default function Navbar() {
 
   const navItems = [
     {
-      id:1,
-      label:"About Us",
-      link:"/about-us"
+      id: 1,
+      label: "About Us",
+      link: "/about-us",
     },
     {
-      id:2,
-      label:"Technology",
-      link:"#"
+      id: 2,
+      label: "Technology",
+      link: "#",
     },
     {
-      id:3,
-      label:"Solutions",
-      link:"#"
+      id: 3,
+      label: "Solutions",
+      link: "#",
     },
     {
-      id:4,
-      label:"Ridesharing",
-      link:"#"
+      id: 4,
+      label: "Ridesharing",
+      link: "#",
     },
     {
-      id:5,
-      label:"Investor Centre",
-      link:"#"
+      id: 5,
+      label: "Investor Centre",
+      link: "#",
     },
     {
-      id:6,
-      label:"Resources",
-      link:"#"
+      id: 6,
+      label: "Resources",
+      link: "#",
     },
     {
-      id:7,
-      label:"Contact Us",
-      link:"#"
-    }, 
+      id: 7,
+      label: "Contact Us",
+      link: "/contact-us",
+    },
   ];
 
   const toggleMobileMenu = () => {
@@ -364,7 +364,7 @@ export default function Navbar() {
   return (
     <div className="fixed top-[1.9rem] left-0 right-0 z-[999] px-6">
       <nav
-        className={`max-w-7xl mx-auto bg-white shadow-lg px-6 py-4 transition-all duration-300 ease-in-out ${
+        className={`max-w-7xl mx-auto bg-white shadow-lg px-5 xs:px-6 py-4 transition-all duration-300 ease-in-out ${
           shouldUseRoundedFull ? "rounded-full" : "rounded-2xl"
         }`}
       >
@@ -411,7 +411,7 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Partner Button and Menu */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-1 xs:gap-4">
               <Button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition-all duration-300 ease-in-out text-sm">
                 Partner With Us
               </Button>
@@ -435,17 +435,17 @@ export default function Navbar() {
             <div className="mt-4 py-4 border-t border-gray-200 animate-in slide-in-from-top-2 duration-300 max-h-[60vh] overflow-y-auto">
               <div className="flex flex-col gap-4">
                 {navItems.map((item) => (
-                  <a
-                    key={item}
-                    href="#"
+                  <Link
+                    key={item.id}
+                    href={item.link}
                     className="text-gray-600 hover:text-blue-600 transition-colors duration-300 ease-in-out font-medium py-2 px-2 hover:bg-blue-50 rounded-lg"
                     onClick={() => {
                       isMenuOpeningRef.current = false;
                       setIsMobileMenuOpen(false);
                     }}
                   >
-                    {item}
-                  </a>
+                    {item.label}
+                  </Link>
                 ))}
               </div>
             </div>
