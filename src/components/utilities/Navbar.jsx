@@ -434,25 +434,26 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Dropdown */}
-          {isMobileMenuOpen && (
-            <div className="mt-4 py-4 border-t border-gray-200 animate-in slide-in-from-top-2 duration-300 max-h-[60vh] overflow-y-auto">
-              <div className="flex flex-col gap-4">
-                {navItems.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.link}
-                    className="text-gray-600 hover:text-blue-600 transition-colors duration-300 ease-in-out font-medium py-2 px-2 hover:bg-blue-50 rounded-lg"
-                    onClick={() => {
-                      isMenuOpeningRef.current = false;
-                      setIsMobileMenuOpen(false);
-                    }}
-                  >
-                    {item}
-                  </a>
-                ))}
-              </div>
-            </div>
-          )}
+         {isMobileMenuOpen && (
+  <div className="mt-4 py-4 border-t border-gray-200 transition-all duration-300 ease-in-out max-h-[60vh] overflow-y-auto">
+    <div className="flex flex-col gap-4">
+      {navItems?.map((item) => (
+        <a
+          key={item.label}
+          href={item.link}
+          className="text-gray-600 hover:text-blue-600 transition-colors duration-300 ease-in-out font-medium py-2 px-2 hover:bg-blue-50 rounded-lg"
+          onClick={() => {
+            isMenuOpeningRef.current = false;
+            setIsMobileMenuOpen(false);
+          }}
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+  </div>
+)}
+
         </div>
       </nav>
     </div>

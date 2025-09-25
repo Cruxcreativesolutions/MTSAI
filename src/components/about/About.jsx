@@ -705,7 +705,7 @@ export const MobilityRevolutionSection = () => {
     <div
       key={index}
       className={cn(
-        "mb-2 relative flex flex-col justify-between rounded-lg p-6 sm:p-8 text-white shadow-lg w-full max-w-[450px] min-h-[220px] md:min-h-[240px] mx-auto",
+        "mb-2 relative flex flex-col justify-between rounded-lg p-6 sm:p-8 text-white shadow-lg w-full max-w-[450px] md:h-48 h-20 mx-auto",
         item.bgColor
       )}
     >
@@ -736,7 +736,7 @@ export const MobilityRevolutionSection = () => {
             "rounded-full bg-white font-medium transition-colors duration-300 shadow-lg",
             "w-full px-4 py-3 text-sm",
             "sm:w-auto sm:px-6 sm:py-3 sm:text-base",
-            "border-[#53AA00] text-[#53AA00] hover:bg-[#53AA00] hover:text-white"
+            "border-[#53AA00] text-[#53AA00] hover:bg-[#53AA00] hover:text-white border-1"
           )}
         >
           {item.buttonText}
