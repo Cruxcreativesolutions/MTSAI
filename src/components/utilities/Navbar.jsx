@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 function DesktopLogo() {
   return (
@@ -313,6 +314,7 @@ function MobileLogo() {
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isMenuOpeningRef = useRef(false);
+  const pathname = usePathname();
 
   const navItems = [
     {
@@ -377,8 +379,9 @@ export default function Navbar() {
 
           {/* Navigation Links */}
           <div className="flex items-center gap-5 xl:gap-8">
-            {navItems.map((item, idx) => (
-              <motion.div
+            {navItems.map((item, idx) => {
+              const isActive = pathname === item.link;
+             return( <motion.div
                 key={item.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -387,13 +390,13 @@ export default function Navbar() {
               >
                 <Link
                   href={item?.link}
-                  className="text-[#7f7f7f] hover:text-blue-600 transition-colors duration-300 ease-in-out font-medium text-sm relative group text-center"
+                  className={`text-[#7f7f7f] hover:text-blue-600 ${isActive?"text-blue-600":"text-[#7f7f7f]"} transition-colors duration-300 ease-in-out font-medium text-sm relative group text-center`}
                 >
                   {item?.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                  <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-in-out group-hover:w-full`}></span>
                 </Link>
               </motion.div>
-            ))}
+            )})}
           </div>
 
           {/* Partner Button */}
@@ -407,7 +410,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center">
-              <MobileLogo />
+             <Link href="/"> <MobileLogo /></Link>
             </div>
 
             {/* Mobile Partner Button and Menu */}
@@ -436,8 +439,8 @@ export default function Navbar() {
               <div className="flex flex-col gap-4">
                 {navItems.map((item) => (
                   <a
-                    key={item}
-                    href="#"
+                    key={item.label}
+                    href={item.link}
                     className="text-gray-600 hover:text-blue-600 transition-colors duration-300 ease-in-out font-medium py-2 px-2 hover:bg-blue-50 rounded-lg"
                     onClick={() => {
                       isMenuOpeningRef.current = false;
