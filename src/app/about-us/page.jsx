@@ -1,8 +1,22 @@
 import React from 'react'
-import { ImpactSection, IndiaStory, ProblemSolvingSec, TrafficComparisonSection, WhoWeAre } from '../../components/about/About'
+import { HowItStarted, ImpactSection, IndiaStory, JourneySec, MiracleTracffic, MobilityRevolutionSection, PartnersSection, ProblemSolvingSec, TrafficComparisonSection, WhoWeAre } from '../../components/about/About'
 import BackgroundImage from "../../assets/about/AboutBackgroundImage.png"
 import BottomImage from "../../assets/about/aboutUsHero.webp"
 import ProblemSolvingImage from "../../assets/about/problemSolvingImage.png"
+import  TargetIcon  from "../../assets/about/MissionIcon.svg";
+import EyeIcon  from "../../assets/about/Vission.svg";
+import Howstarted1 from "../../assets/about/howitstarted/howItstarted1.png"
+import Howstarted2 from "../../assets/about/howitstarted/howItstarted2.png"
+import Howstarted3 from "../../assets/about/howitstarted/howItstarted3.png"
+import Howstarted4 from "../../assets/about/howitstarted/howItstarted4.png"
+import Howstarted5 from "../../assets/about/howitstarted/howItstarted5.png"
+import journey1 from "../../assets/about/journey/november2023.png";
+import journey2 from "../../assets/about/journey/feb2024.png"
+import journey3 from "../../assets/about/journey/march2024.png"
+import journey4 from "../../assets/about/journey/march2024-2.png"
+import journey5 from "../../assets/about/journey/april2024.png"
+import journey6 from "../../assets/about/journey/january2025.png"
+
 const Page = () => {
    const indiaStory = [
     {
@@ -60,6 +74,73 @@ const impact = [
   },
 ];
 
+const MiracleTrafficData=[
+  {
+    title:"Mission",
+    description:"Deliver traffic congestion solutions that citizens embrace, empowering cities to reclaim productivity, cut emissions, and build trust—while governments implement with confidence.",
+    icon:TargetIcon 
+  },
+  {
+    title:"Vision",
+    description:"By 2030, enable 50+ Indian cities to achieve smoother traffic flow, cleaner air, and stronger economies through voter-approved congestion solutions.",
+    icon:EyeIcon 
+  },
+
+]
+ const timelineSteps = [
+    {
+      title: "How can we reduce the 80% of vehicles emission and pollution?",
+      image: Howstarted1,
+    },
+    {
+      title: "How can we start the sustainable digital revenue stream?",
+      image: Howstarted2,
+    },
+    {
+      title: "How can we reform education, can we make it more comprehensive and ground?",
+      image: Howstarted3,
+    },
+    {
+      title: "How can we ensure that people have long-term big deals?",
+      image: Howstarted4,
+    },
+    {
+      title: "How can we start and empower local production to reduce import dependency?",
+      image: Howstarted5,
+    },
+  ]
+const journeyData=[
+  {
+    title:"November 2023",
+    description:"MIRACLE TRAFFIC CANADA Inc.",
+    image:journey1
+  },
+  {
+    title:"February 2024",
+    description:"Partnership with Dallas Baptist University, Judson University, Palm Beach Atlantic University",
+    image:journey2
+  },
+  {
+    title:"March 2024",
+    description:"Partnership with Royal Bank of Canada, RBC Dominion Securities Inc., Granit Bank, DLA Piper, MSC Canada, TomTom.",
+    image:journey3
+  },
+  {
+    title:"March 2024",
+    description:"Establishment of MIRACLE TRAFFIC HUNGARY, Kft and Partnership with BME",
+    image:journey4
+  },
+  {
+    title:"April 2024",
+    description:"Partnership with Covalience with an experienced software development team. This allows for MTSAI program roll-out in multiple cites.",
+    image:journey5
+  },
+  {
+    title:"January 2025",
+    description:"MIRACLE TRAFFIC USA, INC. and Beyond…",
+    image:journey6
+  },
+]
   return (
    <>
     <WhoWeAre title="Who We Are" 
@@ -88,6 +169,13 @@ const impact = [
     <TrafficComparisonSection/>
     <IndiaStory title="Our India Story" items={indiaStory} />
     <ImpactSection impact={impact}/>
+    <MiracleTracffic title=" Miracle Traffic Solutions AI" title2="MiracleTrafficData" data={MiracleTrafficData}/>
+    <HowItStarted timelineSteps={timelineSteps}/>
+    <JourneySec
+    data={journeyData}
+     description="Founded to solve urban traffic congestion, Miracle Traffic Solution AI integrates various social media and transportation software and hardware systems into a single easy to manage platform. We work with city and government agencies to create tailored solutions."/>
+   <PartnersSection/>
+   <MobilityRevolutionSection/>
    </>
   )
 }

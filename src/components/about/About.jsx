@@ -9,6 +9,16 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import ComparisonImage from "../../assets/about/comparissionImage.png"
+import { Card } from "../ui/cardwithcenterIcon";
+import "swiper/css"
+import "swiper/css/autoplay"
+import { TimelineCard } from "../ui/timelinecards";
+import React from "react";
+import { cn } from "@/lib/utils";
+import { Button } from "../ui/button";
+import cell from "@/assets/home/logos/openxcell.png";
+import crux from "@/assets/home/logos/Crux.png";
+import adaptive from "@/assets/home/logos/Adaptive.png";
 
 export const WhoWeAre = ({ title, description, stats, backgroundImage, bottomImage }) => {
   return (
@@ -315,9 +325,13 @@ export const IndiaStory = ({ title, items }) => {
 export const ImpactSection = ({ impact }) => {
   return (
     <section className="max-w-7xl mx-auto px-6 py-16">
-      <h2 className="text-3xl md:text-[45px] font-bold text-center mb-12">
+      <motion.h2  
+      initial={{ opacity: 0, x: -40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ delay: 0.2, duration: 0.1 }}
+      className="text-3xl md:text-[45px] font-bold text-center mb-12">
         Our <span className="text-blue-600">Impact</span>
-      </h2>
+      </motion.h2>
 
       {/* Mobile view */}
     <div className="block sm:hidden space-y-6">
@@ -378,5 +392,365 @@ export const ImpactSection = ({ impact }) => {
   );
 };
 
+export const MiracleTracffic=({title,title2,data})=>{
+  return(
+     <div className="max-w-7xl mx-auto text-center px-3 py-20">
+        {/* Section Heading */}
+        <div className="flex items-center justify-center mb-4">
+          <motion.div 
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.2, duration: 0.1 }} 
+          className="w-40 h-0.5 bg-green-500"></motion.div>
+          <motion.h1
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.2, duration: 0.1 }}
+          className="text-3xl md:text-[45px] font-extrabold text-gray-900 mx-4">
+           {title}
+          </motion.h1>
+          <motion.div 
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.2, duration: 0.1 }}
+          className="w-40 h-0.5 bg-green-500"></motion.div>
+        </div>
+
+        <motion.h3 
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.2, duration: 0.1 }}
+        className="text-2xl md:text-[40px] font-bold text-blue-600 mb-16">
+         {title2}
+        </motion.h3>
+
+        {/* Cards Section */}
+        <motion.div
+          className="flex flex-col md:flex-row justify-center items-center md:space-x-8 space-y-16 md:space-y-0"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }} 
+          variants={{
+            visible: {
+              transition: { staggerChildren: 0.2 },
+            },
+          }}
+        >
+        {
+            data?.map((item, indx) => (
+            <Card
+              key={indx} 
+              title={item.title}
+              description={item.description}
+              icon={item.icon}
+            />
+          ))
+        }
+      </motion.div>
+      </div>
+  )
+}
+
+export const HowItStarted=({timelineSteps})=> {
+ return (
+    <section className="relative px-8 md:px-4 py-10 max-w-6xl mx-auto">
+      <div className="bg-[#53AA00] rounded-3xl p-0 md:p-12 relative overflow-visible">
+        {/* Desktop Layout */}
+        <div className="hidden md:block">
+          <div className="flex items-center gap-10 mb-12">
+            {/* Left text */}
+            <div className="text-white flex-1">
+              <motion.h2 
+              initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }} 
+            className="text-4xl font-bold mb-4 text-balance">How it started</motion.h2>
+              <motion.p
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }} 
+              className="text-lg leading-relaxed">It started with simple questions...</motion.p>
+            </div>
+
+            <div className="flex items-center -mt-20">
+              <TimelineCard title={timelineSteps[0].title} image={timelineSteps[0].image} />
+              <div className="w-12 h-0 border-t-2 border-dotted border-white"></div>
+              <TimelineCard title={timelineSteps[1].title} image={timelineSteps[1].image} />
+            </div>
+          </div>
+
+          <div className="flex justify-center mb-1">
+            <div className="w-0 h-16 border-l-2 border-dotted border-white"></div>
+          </div>
+
+          <div className="flex justify-center items-center mb-[-4rem]">
+            <TimelineCard title={timelineSteps[2].title} image={timelineSteps[2].image} />
+            <div className="w-12 h-0 border-t-2 border-dotted border-white"></div>
+            <TimelineCard title={timelineSteps[3].title} image={timelineSteps[3].image} />
+            <div className="w-12 h-0 border-t-2 border-dotted border-white"></div>
+            <TimelineCard title={timelineSteps[4].title} image={timelineSteps[4].image} />
+          </div>
+        </div>
+
+       {/* Mobile Layout */}
+   <div className="md:hidden">
+  <div className="text-white mb-8 text-center">
+    <motion.h2
+    initial={{ opacity: 0, x: -40 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ delay: 0.2, duration: 0.8 }} 
+    className="text-2xl font-bold mb-3 p-2 text-balance">How it started</motion.h2>
+    <motion.p
+    initial={{ opacity: 0, x: -40 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ delay: 0.2, duration: 0.8 }} 
+    className="text-base leading-relaxed">
+      It started with simple questions...
+    </motion.p>
+  </div>
+
+  <div className="-mx-2 space-y-12 mb-4">
+    {timelineSteps.map((step, index) => (
+      <div key={index} className="relative">
+        <motion.div
+         initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }} 
+             className="relative w-full h-48  rounded-lg overflow-visible ">
+          {/* Image section */}
+          <Image
+            src={step.image}
+            alt="images"
+            className="w-full h-full object-cover rounded-lg"
+            width={400}
+            height={300}
+          />
+
+          {/* Content overlay */}
+          <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-blue-600 px-4 py-3 w-44 h-32 rounded-xl flex items-center justify-center z-20 shadow-md">
+            <motion.p  initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}  className="text-white text-sm leading-tight font-medium text-center">
+              {step.title}
+            </motion.p>
+          </div>
+        </motion.div>
+      </div>
+    ))}
+  </div>
+</div>
+
+      </div>
+    </section>
+  )
+}
+
+export const JourneySec = ({ description, data }) => {
+  return (
+    <section className="max-w-7xl mx-auto px-6 py-16">
+      {/* Heading */}
+      <motion.h2
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.2, duration: 0.1 }}
+        className="text-3xl md:text-[45px] font-bold text-center mb-8"
+      >
+        Our <span className="text-[#0152CA]">Journey</span>
+      </motion.h2>
+      {/* Description */}
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.5 }}
+        className="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12"
+      >
+        {description}
+      </motion.p>
+
+      {/* Journey timeline column */}
+      <div className="relative grid grid-cols-1 md:grid-cols-3 gap-7 items-center">
+        {data?.map((item, indx) => (
+          <div key={indx} className="relative w-full max-w-md ">
+            {/* Card */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="h-[400px] relative z-10 border shadow-lg rounded-lg p-6 bg-white hover:bg-[#0152CA] hover:text-white transition-colors duration-300"
+            >
+              <h3 className="font-bold text-2xl mb-2 md:h-12">{item.title}</h3>
+              <p className="text-base mb-4 md:h-20">{item.description}</p>
+              <div className="flex justify-center">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  width={300}
+                  height={300}
+                  className="rounded-md object-contain"
+                />
+              </div>
+            </motion.div>
+
+             {/* Horizontal dotted line (not after last card) */}
+           {indx !== data.length - 1 && indx !== 2 && (
+  <div className="hidden md:block absolute top-1/2 -right-7 transform -translate-y-1/2 w-7 border-t-2 border-dotted border-black z-10"></div>
+)}
+
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+
+
+export const PartnersSection=()=> {
+  const partners = [
+    { name: "Openxcell", logo: cell },
+    { name: "CRUX", logo: crux },
+    { name: "Adaptive Recognition", logo: adaptive },
+  ]
+
+  return (
+    <section className="py-12 md:py-20">
+      <div className="container mx-auto px-4 text-center">
+        <motion.h2
+        initial={{ opacity: 0, x: -40 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ delay: 0.2, duration: 0.1 }}
+         className="text-3xl font-bold text-balance md:text-4xl">
+          Our <span className="text-[#0152CA]">Partners</span>
+        </motion.h2>
+        <motion.div className="mt-8 flex items-center justify-center gap-8 md:flex-row flex-col"
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.2, duration: 0.5 }} >
+          {partners.map((partner) => (
+            <div
+              key={partner.name}
+              className="flex h-24 w-48 items-center justify-center rounded-lg border border-gray-200 bg-white p-4 shadow-sm"
+            >
+              <Image
+                src={partner.logo}
+                alt={partner.name}
+                width={150}
+                height={40}
+                className="object-contain"
+              />
+            </div>
+          ))}
+        </motion.div>
+        
+      </div>
+    </section>
+  )
+} 
+
+
+
+
+export const MobilityRevolutionSection = () => {
+  const revolutionItems = [
+    {
+      title: "Government Leaders",
+      buttonText: "Schedule a Pilot City Demo",
+      bgColor: "bg-green-600",
+     
+    },
+    {
+      title: "SuperApp Partners",
+      buttonText: "Explore Integration Opportunities",
+      bgColor: "bg-blue-600",
+     
+    },
+    {
+      title: "Investors",
+      buttonText: "Access Pre-IPO Information",
+      bgColor: "bg-indigo-600",
+     
+    },
+    {
+      title: "Citizens",
+      buttonText: "Discover How You Save Money",
+      bgColor: "bg-green-600",
+   
+    },
+  ];
+
+  return (
+    <section className="py-12 md:py-20">
+      <div className="max-w-7xl mx-auto px-4">
+        {/* Heading row */}
+       <div className="flex items-center justify-between gap-4">
+  {/* Heading */}
+  <motion.h2
+    initial={{ opacity: 0, x: -40 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ delay: 0.2, duration: 0.1 }}
+    className="text-3xl md:text-[45px] font-bold text-black text-center md:text-left"
+  >
+    Join India&apos;s
+    <span className="text-[#0152CA] px-1">Mobility Revolution</span>
+  </motion.h2>
+
+  {/* Line */}
+  <div className="hidden md:block h-1 w-24 bg-[#53AA00] md:w-lg" />
+</div>
+
+
+        {/* Cards */}
+  <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 justify-center">
+  {revolutionItems.map((item, index) => (
+    <div
+      key={index}
+      className={cn(
+        "mb-2 relative flex flex-col justify-between rounded-lg p-6 sm:p-8 text-white shadow-lg w-full max-w-[450px] min-h-[220px] md:min-h-[240px] mx-auto",
+        item.bgColor
+      )}
+    >
+      {/* Title */}
+      <motion.h3
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.2, duration: 0.1 }}
+        className="text-center md:text-left text-xl sm:text-2xl md:text-[35px] font-semibold"
+      >
+        {item.title}
+      </motion.h3>
+
+      {/* Button */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.2 }}
+        className={cn(
+          // default mobile → stick slightly out at bottom center
+          "absolute -bottom-4 left-1/2 -translate-x-1/2 w-[80%] flex justify-center",
+          // desktop → move to right middle
+          "md:static md:mt-6 md:flex md:justify-start md:w-auto md:translate-x-0 md:translate-y-0 md:absolute md:top-1/2 md:right-[-4rem] md:-translate-y-1/2"
+        )}
+      >
+        <Button
+          className={cn(
+            "rounded-full bg-white font-medium transition-colors duration-300 shadow-lg",
+            "w-full px-4 py-3 text-sm",
+            "sm:w-auto sm:px-6 sm:py-3 sm:text-base",
+            "border-[#53AA00] text-[#53AA00] hover:bg-[#53AA00] hover:text-white"
+          )}
+        >
+          {item.buttonText}
+        </Button>
+      </motion.div>
+    </div>
+  ))}
+</div>
+
+
+
+      </div>
+    </section>
+  );
+};
 
 
